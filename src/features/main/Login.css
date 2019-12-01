@@ -1,6 +1,17 @@
-h1 {
+h1,
+h2 {
   text-align: center;
   /* text-transform: uppercase; */
+}
+h1 {
+  position: relative;
+  top: 20%;
+  font-family: "Gaegu", cursive;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 2rem;
+  letter-spacing: 1px;
+  font-size: 3em;
 }
 
 h3 {
@@ -23,18 +34,20 @@ h3 {
 }
 
 .main-heading {
+  font-family: "Gaegu", cursive;
+
   margin-bottom: 70px;
   /* font-weight: 500; */
   font-size: 3rem;
   line-height: 2.75rem;
   color: var(--darktext);
   position: relative;
-  top: 88%;
+  top: 85%;
 }
 
 .spot-login-btn-div {
   position: relative;
-  top: 65%;
+  top: 60%;
 }
 
 .btn,
