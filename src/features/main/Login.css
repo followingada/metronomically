@@ -1,0 +1,84 @@
+h1 {
+  text-align: center;
+  /* text-transform: uppercase; */
+}
+
+h3 {
+  font-size: 1.35rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.login-container {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  /* align-items: center; */
+  background-image: var(--black-and-white-vinyl);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.main-heading {
+  margin-bottom: 70px;
+  /* font-weight: 500; */
+  font-size: 3rem;
+  line-height: 2.75rem;
+  color: var(--darktext);
+  position: relative;
+  top: 88%;
+}
+
+.spot-login-btn-div {
+  position: relative;
+  top: 65%;
+}
+
+.btn,
+.btn-primary {
+  text-transform: uppercase;
+  padding: 1em 3em 0.98em;
+  text-align: center;
+  border-width: 0px;
+  border-style: solid;
+  border-radius: 50px;
+  white-space: nowrap;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.075);
+  transition: all 0.15s;
+}
+.btn-primary {
+  color: #fff;
+  background-color: var(--darktext);
+  border-color: (--darktext);
+  transition: all 0.3s;
+  cursor: pointer;
+  border-bottom: 4px solid lighten(gray, 70%);
+}
+.btn-primary:active {
+  box-shadow: 0 6px 4px darkgray;
+  transform: scale(0.98);
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: var(--darktext);
+  border-color: var(--darktext);
+  box-shadow: 0 6px 4px darkgray;
+  transform: scale(1.03);
+}
+.btn-primary:not(:disabled):not(.disabled):active {
+  color: #fff;
+  background-color: var(--darktext);
+  border-color: var(--darktext);
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:focus {
+  color: #fff;
+  background-color: var(--darktext);
+  border-color: var(--darktext);
+  box-shadow: 0 6px 4px darkgray;
+}
