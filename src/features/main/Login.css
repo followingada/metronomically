@@ -3,49 +3,6 @@ h2 {
   text-align: center;
   /* text-transform: uppercase; */
 }
-h1.title {
-  position: relative;
-  top: 20%;
-  font-family: "Gaegu", cursive;
-  text-transform: uppercase;
-  color: #fff;
-  line-height: 2rem;
-  letter-spacing: 1px;
-  font-size: 3em;
-}
-
-h3 {
-  font-size: 1.35rem;
-  line-height: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.login-container {
-  margin: 0 auto;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  background-image: var(--black-and-white-vinyl);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-heading {
-  font-family: "Gaegu", cursive;
-  font-size: 2.5rem;
-  color: var(--darktext);
-  position: relative;
-  top: 85%;
-}
-
-.spot-login-btn-div {
-  position: relative;
-  top: 65%;
-}
 
 .btn,
 .btn-primary {
