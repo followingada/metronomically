@@ -1,5 +1,6 @@
 import React from "react";
 import "./Login.css";
+import SpotifyLogin from "../authorization/SpotifyLogin";
 
 const LoginPage = () => (
   <>
@@ -9,7 +10,7 @@ const LoginPage = () => (
         height: "100vh",
         display: "grid",
         gridTemplateRows: "1fr 1fr",
-        gridTemplateColumns: "1fr 266px 1fr"
+        gridTemplateColumns: "1fr min-content 1fr"
       }}
     >
       <div
@@ -35,13 +36,13 @@ const LoginPage = () => (
       <div style={{ backgroundColor: "black", color: "white" }} />
       <div style={{ backgroundColor: "black", color: "white" }} />
       <div style={{ position: "absolute", left: "40%", top: "46.5%" }}>
-        <button
+        <SpotifyLogin
           className="btn btn-primary"
-          style={{ width: "266px" }}
+          style={{ width: "min-content" }}
           onClick={() => console.log("clicked")}
         >
           Coming Soon
-        </button>
+        </SpotifyLogin>
       </div>
       <div />
       <div />

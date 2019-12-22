@@ -5,12 +5,14 @@ import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 import App from "./App";
 import LoginPage from "./features/main/Login";
+import NotFound from "./features/not-found/NotFound";
 
 ReactDOM.render(
   <Router>
     <div>
       <Route exact path="/" component={App} />
       <Route path="/login" component={LoginPage} />
+      <Route path="404" component={NotFound} />
     </div>
   </Router>,
   document.getElementById("root")
