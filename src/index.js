@@ -1,20 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 import App from "./App";
-import LoginPage from "./features/main/Login";
 import NotFound from "./features/not-found/NotFound";
+import TempoSelect from "./features/tempo-select/TempoSelect";
 
 ReactDOM.render(
-  <Router>
-    <div>
+  <BrowserRouter>
+    <Switch>
       <Route exact path="/" component={App} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="404" component={NotFound} />
-    </div>
-  </Router>,
+      <Route path="/login" component={App} />
+      <Route path="/select" component={TempoSelect} />
+      <Route component={NotFound} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

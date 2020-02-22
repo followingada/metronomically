@@ -1,29 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./App.css";
+import LoginPage from "./features/main/Login";
 
-const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false); //eslint-disable-line
-  const [urlParts, setUrlParts] = useState([]);
+const App = props => {
+  const [hashSaved, saveHash] = useState(
+    localStorage.getItem("accessToken") || ""
+  );
 
-  useEffect(() => {
-    const url = window.location.href;
-    if (url.includes("#access_token=")) {
-      console.log("im here", url);
-      const urlParts = url.split("#access_token=");
-      setLoggedIn(true);
-      setUrlParts(urlParts);
-    }
-  }, []);
+  let loggedIn = hashSaved ? true : false;
+  const hash = props.location.hash;
 
-  const PrivateRoute = () =>
-    loggedIn ? (
-      <Redirect to="/404" props={urlParts} />
-    ) : (
-      <Redirect to="/login" />
-    );
+  if (hash && !loggedIn) {
+    saveHash(hashSaved);
+    localStorage.setItem("accessToken", hash.split("#access_token=")[1]);
+  }
 
-  return PrivateRoute();
+  return (
+    <>
+      {loggedIn && <Redirect to="/select" />}
+      {!loggedIn && <LoginPage />}
+    </>
+  );
 };
 
 export default App;
