@@ -39,10 +39,7 @@ const LoginPage = () => (
         <SpotifyLogin
           className="btn btn-primary"
           style={{ width: "min-content" }}
-          onClick={() => console.log("clicked")}
-        >
-          Coming Soon
-        </SpotifyLogin>
+        />
       </div>
       <div />
       <div />
