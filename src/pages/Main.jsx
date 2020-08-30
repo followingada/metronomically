@@ -1,22 +1,67 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import LoginPage from "./login/Login";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import SpotifyLogin from "../components/Buttons/SpotifyButton";
+import { Illustrations, defaultTheme } from "../assets";
+import localTokenCheck from "../utils/local-token-check";
+import TempoSelect from "./tempos/TempoSelect";
 
-const App = (props) => {
-  const [hash, saveHash] = useState(localStorage.getItem("accessToken") || "");
-  let loggedIn = hash ? true : false;
-  const hashProp = props.location.hash;
+const Root = styled.div`
+  display: grid;
+  grid-template-columns: minmax(auto, 720px) 1fr;
+  text-align: center;
+  height: 100%;
+`;
 
-  if (hashProp && !loggedIn) {
-    saveHash(hash);
-    localStorage.setItem("accessToken", hashProp.split("#access_token=")[1]);
-  }
+const Img = styled.img`
+  width: 400px;
+`;
+
+const Title = styled.h1`
+  padding: 0;
+  margin: 0;
+  word-spacing: 2em;
+  text-align: left;
+  text-transform: uppercase;
+  line-height: 14rem;
+  font-size: 15rem;
+  color: ${defaultTheme.primaryActiveColor};
+`;
+
+const TitleContainer = styled.div`
+  display: grid;
+  grid-template-rows; 1fr auto
+`;
+
+const LoginContainer = styled.div`
+  align-self: center;
+`;
+
+const App = ({ location }) => {
+  let localToken = localTokenCheck();
+  const [hash, saveHash] = useState(localToken || "");
+  const hashProp = location.hash;
+
+  useEffect(() => {
+    if (!localToken) {
+      saveHash(hashProp);
+      localStorage.setItem("accessToken", hashProp.split("#access_token=")[1]);
+      window.history.replaceState({}, "Swinglist", "/");
+    }
+  }, [hashProp, localToken]);
 
   return (
-    <>
-      {loggedIn && <Redirect to="/select" />}
-      {!loggedIn && <LoginPage />}
-    </>
+    <Root>
+      <TitleContainer>
+        <Title>Swing List</Title>
+        <Img src={Illustrations.Music} alt="Play that funky music!" />
+      </TitleContainer>
+      {!hash && (
+        <LoginContainer>
+          <SpotifyLogin />
+        </LoginContainer>
+      )}
+      {hash && <TempoSelect />}
+    </Root>
   );
 };
 

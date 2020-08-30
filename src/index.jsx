@@ -2,20 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-import App from "./pages/Main";
-import NotFound from "./pages/404/NotFound";
-import TempoSelect from "./pages/tempos/TempoSelect";
-import LoginPage from "./pages/login/Login";
 import { GlobalStyle } from "./assets";
+import App from "./pages/Main";
 
 ReactDOM.render(
   <BrowserRouter>
     <GlobalStyle />
     <Switch>
       <Route exact path="/" component={App} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/select" component={TempoSelect} />
-      <Route component={NotFound} />
+      <Route path="/*" component={App} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
