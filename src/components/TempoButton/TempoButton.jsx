@@ -7,24 +7,26 @@ const styles = {
     height: "60px",
     minWidth: "fit-content",
     width: "80%",
-    border: "1px solid"
+    border: "1px solid",
   },
   span: {
     fontSize: "12px",
     fontWeight: "500",
-    letterSpacing: "0.7px"
-  }
+    letterSpacing: "0.7px",
+  },
 };
 
-const SelectChip = ({ min, max, label }) => {
+const TempoButton = ({ min, max, label }) => {
   return (
     <button
       style={styles.button}
       onClick={() => console.log("I was clicked!", min, max, label)}
     >
-      <span style={styles.span}>{label} - Click me!</span>
+      <span style={styles.span}>
+        {min} - {label} - {max}
+      </span>
     </button>
   );
 };
 
-export default SelectChip;
+export default TempoButton;

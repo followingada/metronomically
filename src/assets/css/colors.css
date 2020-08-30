@@ -1,0 +1,41 @@
+:root {
+  --red-blue-vinyls: url("../images/redandblue.jpeg");
+  --black-and-white-vinyl: url("../images/black-and-white.jpg");
+  /* --brown: #4e2426;
+  --blue: #04869f;
+  --cream: #e6d2c1;
+  --darkpink: #b54847;
+  --peach: #d58073;
+  --offwhite: #f7ece3;
+
+  --darktext: #131315;
+  --greytext: #3c403f;
+  --lighttext: #d8ddd8; */
+
+  --primary-100: #e5bcc7;
+  --primary-200: #cc708a;
+  --primary-300: #844c5c;
+  --primary-400: #b23a5c;
+  --primary-500: #8e072d;
+
+  --text: #000000;
+  --text-inverted: #ffffff;
+
+  --neutral-100: #ffffff;
+  --neutral-200: #f4f5f7;
+  --neutral-300: #e1e1e1;
+  --neutral-400: #737581;
+  --neutral-500: #4a4b53;
+
+  --success-100: #529e66;
+  --success-200: #367b48;
+  --success-300: #276738;
+
+  --error-100: #d0454c;
+  --error-200: #b54248;
+  --error-300: #95353a;
+
+  --warning-100: #e1c542;
+  --warning-200: #cab23f;
+  --warning-300: #b49e35;
+}

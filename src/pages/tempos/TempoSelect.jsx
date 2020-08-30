@@ -1,7 +1,7 @@
 import React from "react";
-import SelectChip from "./SelectChip";
+import TempoButton from "../../components/TempoButton/TempoButton";
 
-const TempoSelect = props => {
+const TempoSelect = (props) => {
   console.log(props);
   return (
     <section style={{ height: "100vh" }}>
@@ -15,11 +15,11 @@ const TempoSelect = props => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "space-evenly"
+            justifyContent: "space-evenly",
           }}
         >
-          {tempoOptions.map(option => (
-            <SelectChip
+          {tempoOptions.map((option) => (
+            <TempoButton
               key={`select-chip-${option.label}`}
               min={option.min}
               max={option.max}
@@ -39,26 +39,26 @@ const tempoOptions = [
   {
     min: 115,
     max: 145,
-    label: "Slow"
+    label: "Slow",
   },
   {
     min: 145,
     max: 175,
-    label: "Medium"
+    label: "Medium",
   },
   {
     min: 175,
     max: 235,
-    label: "Fast"
+    label: "Fast",
   },
   {
     min: 20,
     max: 100,
-    label: "Blues"
+    label: "Blues",
   },
   {
     min: "?",
     max: "?",
-    label: "Custom"
-  }
+    label: "Custom",
+  },
 ];
