@@ -1,6 +1,6 @@
-const localTokenCheck = () => {
+const getAccessToken = () => {
   let localToken = localStorage.getItem("accessToken");
   return localToken && localToken !== "undefined" ? localToken : null;
 };
 
-export default localTokenCheck;
+export default getAccessToken;

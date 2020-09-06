@@ -1,31 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
+import { SecondaryButton } from "../Buttons/Buttons";
+import { apiCall } from "../../utils/api-tracks-call";
 
-const styles = {
-  button: {
-    borderRadius: "50px",
-    textTransform: "uppercase",
-    height: "60px",
-    minWidth: "fit-content",
-    width: "80%",
-    border: "1px solid",
-  },
-  span: {
-    fontSize: "12px",
-    fontWeight: "500",
-    letterSpacing: "0.7px",
-  },
-};
+const TempoChoice = styled(SecondaryButton)`
+  padding: 0;
+  width: 50%;
+  height: 45%;
+  border-radius: 0px;
+`;
 
-const TempoButton = ({ min, max, label }) => {
+const TempoButton = ({ option }) => {
+  const [selected, setSelected] = useState(option);
+
   return (
-    <button
-      style={styles.button}
-      onClick={() => console.log("I was clicked!", min, max, label)}
-    >
-      <span style={styles.span}>
-        {min} - {label} - {max}
-      </span>
-    </button>
+    <>
+      <TempoChoice onClick={() => apiCall(selected)} modifiers={["large"]}>
+        <p style={{ wordSpacing: "1rem" }}>
+          {option.min} &#x2264; {option.label} &#8805; {option.max}
+        </p>
+      </TempoChoice>
+    </>
   );
 };
 
