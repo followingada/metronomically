@@ -39,7 +39,9 @@ const SpotfityButton = styled.button`
 
 const SpotifyLogin = () => {
   return (
-    <SpotfityButton onClick={authoriseUser}>Log in with Spotify</SpotfityButton>
+    <SpotfityButton onClick={authoriseUser} disabled>
+      Coming soon!
+    </SpotfityButton>
   );
 };
 
