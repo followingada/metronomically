@@ -1,4 +1,4 @@
-import React from "react";
+import React from "./node_modules/react";
 // import "./Layout.css";
 
 const NavBar = () => {
@@ -11,7 +11,7 @@ const NavBar = () => {
         backgroundColor: "white",
         position: "fixed",
         top: "0",
-        width: "100%"
+        width: "100%",
       }}
     >
       <div
@@ -21,7 +21,7 @@ const NavBar = () => {
           alignSelf: "center",
           display: "grid",
           gridTemplateColumns: "200px 200px 200px",
-          justifyContent: "center"
+          justifyContent: "center",
         }}
       >
         <p>HOME</p>
@@ -31,7 +31,7 @@ const NavBar = () => {
             fontSize: "24px",
             fontWeight: "600",
             position: "relative",
-            top: "-11px"
+            top: "-11px",
           }}
         >
           METRONOMICALLY
