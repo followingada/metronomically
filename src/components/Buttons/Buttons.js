@@ -58,6 +58,8 @@ export const Button = styled.button`
   &:focus {
     outline: 3px solid ${defaultTheme.primaryHoverColor};
     outline-offset: 2px;
+    background-color: ${defaultTheme.primaryHoverColor};
+    color: ${defaultTheme.textColorOnPrimary};
   }
   &:active {
     background-color: ${defaultTheme.primaryActiveColor};
