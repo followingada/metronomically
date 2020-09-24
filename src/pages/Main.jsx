@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import SpotifyLogin from "../components/Buttons/SpotifyButton";
+import { LoginButton } from "../components/Buttons/Buttons";
+import TempoButton from "../components/TempoButton/TempoButton";
 import Spinner from "../components/Spinner/Spinner";
+import tempoOptions from "../config/tempo-options";
 import { Illustrations, defaultTheme } from "../assets";
 import getAccessToken from "../utils/get-access-token";
-import tempoOptions from "../config/tempo-options";
-import TempoButton from "../components/TempoButton/TempoButton";
-import { apiCall } from "../utils/api-tracks-call";
+import apiCall from "../utils/api-tracks-call";
+import authoriseUser from "../utils/authorise-user";
 
 const App = ({ location }) => {
   let localToken = getAccessToken();
   const [hash, saveHash] = useState(localToken || "");
   const [loading, setLoading] = useState(true);
   const hashProp = location.hash;
+
+  // const [response, setResponse] = useState();
 
   useEffect(() => {
     setLoading(true);
@@ -24,6 +27,11 @@ const App = ({ location }) => {
     setLoading(false);
   }, [hashProp, localToken]);
 
+  const getTracksFromApi = (selection) => {
+    const response = apiCall(selection);
+    console.log(response);
+  };
+
   return (
     <Root>
       <TitleContainer>
@@ -33,7 +41,13 @@ const App = ({ location }) => {
       </TitleContainer>
       {!hash && (
         <LoginContainer>
-          {loading ? <Spinner /> : <SpotifyLogin />}
+          {loading ? (
+            <Spinner />
+          ) : (
+            <LoginButton onClick={authoriseUser}>
+              Log in with Spotify
+            </LoginButton>
+          )}
         </LoginContainer>
       )}
       {hash && (
@@ -43,7 +57,7 @@ const App = ({ location }) => {
             <TempoButton
               key={`select-chip-${option.label}`}
               option={option}
-              onClick={(x) => apiCall(x)}
+              onClick={getTracksFromApi}
             />
           ))}
         </TempoContainer>

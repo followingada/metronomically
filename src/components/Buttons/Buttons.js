@@ -68,7 +68,63 @@ export const Button = styled.button`
   }
 `;
 
+export const LoginButton = styled.button`
+  background-color: ${defaultTheme.accentColor};
+  color: ${defaultTheme.textColorInverted};
+
+  height: 250px;
+  width: 250px;
+
+  box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.23);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  font-size: ${typeScale.header3};
+  line-height: 1.5em
+
+  transition: background-color 0.2s linear, color 0.2s linear;
+
+  &:hover {
+    background-color: ${defaultTheme.primaryHoverColor};
+    color: ${defaultTheme.accentColor};
+  }
+  &:focus {
+    box-shadow: 0 0 0 4pt ${defaultTheme.primaryColor};
+    outline: none;
+    background-color: ${defaultTheme.primaryHoverColor};
+    color: ${defaultTheme.accentColor};
+  }
+  &:active {
+    background-color: ${defaultTheme.primaryActiveColor};
+    border-color: ${defaultTheme.primaryActiveColor};
+    color: ${defaultTheme.accentColor};
+  }
+`;
+
 export const PrimaryButton = styled(Button)`
+  border: 2px solid ${defaultTheme.primaryColor};
+  background: none;
+  color: ${defaultTheme.primaryColor};
+
+  padding: 0;
+  width: 65%;
+  height: 5rem;
+  min-height: max-content;
+  min-width: min-content;
+  border-radius: 0px;
+
+  &:disabled {
+    background: none;
+    border: 2px solid ${defaultTheme.disabled};
+    color: ${defaultTheme.disabled};
+    cursor: not-allowed;
+  }
+  ${applyStyleModifiers(BUTTON_MODIFIERS)};
+`;
+
+//not used
+export const SecondaryButton = styled(Button)`
   background-color: ${defaultTheme.primaryColor};
   color: ${defaultTheme.textColorOnPrimary};
   border: 2px solid transparent;
@@ -80,19 +136,7 @@ export const PrimaryButton = styled(Button)`
   ${applyStyleModifiers(BUTTON_MODIFIERS)};
 `;
 
-export const SecondaryButton = styled(Button)`
-  border: 2px solid ${defaultTheme.primaryColor};
-  background: none;
-  color: ${defaultTheme.primaryColor};
-  &:disabled {
-    background: none;
-    border: 2px solid ${defaultTheme.disabled};
-    color: ${defaultTheme.disabled};
-    cursor: not-allowed;
-  }
-  ${applyStyleModifiers(BUTTON_MODIFIERS)};
-`;
-
+//not used
 export const TertiaryButton = styled(Button)`
   background: none;
   border: 2px solid transparent;

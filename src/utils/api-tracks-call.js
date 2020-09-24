@@ -4,8 +4,7 @@ import getAccessToken from "./get-access-token";
 import parametriseQuery from "./query-parametrise";
 import config from "../config";
 
-export const apiCall = (option) => {
-  // console.log(option);
+const apiCall = async (option) => {
   const range = option.label.toLowerCase();
   const token = getAccessToken();
   const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
@@ -17,9 +16,19 @@ export const apiCall = (option) => {
 
   axios
     .get(url, { headers: authHeader })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      const { error } = err.response.data;
+      console.log("Error", error.message);
+      if (error.status === 401) {
+        //function to log user in again
+        //the rerun the api call
+      }
+      return err;
+    })
     .then((response) => {
-      // console.log(response);
-      return response;
+      console.log(response.data.tracks);
+      return response.data.tracks;
     });
 };
+
+export default apiCall;
